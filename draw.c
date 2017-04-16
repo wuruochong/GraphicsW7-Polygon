@@ -77,8 +77,7 @@ void draw_polygons( struct matrix *polygons, screen s, color c ) {
 					s, c);
 				}
 			}
-
-}
+		}
 
 
 /*======== void add_box() ==========
@@ -106,18 +105,31 @@ void add_box( struct matrix * edges,
   y1 = y-height;
   z0 = z;
   z1 = z-depth;
+	add_polygon(edges, x0, y0, z0, x1, y1, z0, x1, y0, z0);
+	add_polygon(edges, x0, y0, z0, x0, y1, z0, x1, y1, z0);
+	add_polygon(edges, x1, y0, z0, x1, y0, z1, x1, y1, z1);
+	add_polygon(edges, x1, y0, z0, x1, y1, z0, x1, y1, z0);
+	add_polygon(edges, x1, y0, z1, x0, y0, z1, x0, y1, z1);
+	add_polygon(edges, x1, y0, z1, x1, y1, z1, x0, y1, z1);
+	add_polygon(edges, x0, y0, z1, x0, y0, z0, x0, y1, z0);
+	add_polygon(edges, x0, y0, z1, x0, y1, z1, x0, y1, z0);
+	add_polygon(edges, x0, y0, z1, x1, y0, z1, x1, y0, z0);
+	add_polygon(edges, x0, y0, z1, x0, y0, z0, x1, y0, z0);
+	add_polygon(edges, x0, y1, z1, x1, y1, z1, x1, y1, z0);
+	add_polygon(edges, x0, y1, z1, x0, y1, z0, x1, y1, z0);
 
-  //front
+	//front
+	/*
   add_edge(edges, x0, y0, z0, x0+2, y0+2, z0+2);
   add_edge(edges, x1, y0, z0, x1+2, y0+2, z0+2);
   add_edge(edges, x1, y1, z0, x1+2, y1+2, z0+2);
-  add_edge(edges, x0, y1, z0, x0+2, y1+2, z0+2);
-
+  add_edge(edges, x0, y1, z0, x0+2, y1+2, z0+2); */
   //back
+	/*
   add_edge(edges, x0, y0, z1, x0+2, y0+2, z1+2);
   add_edge(edges, x1, y0, z1, x1+2, y0+2, z1+2);
   add_edge(edges, x1, y1, z1, x1+2, y1+2, z1+2);
-  add_edge(edges, x0, y1, z1, x0+2, y1+2, z1+2);
+  add_edge(edges, x0, y1, z1, x0+2, y1+2, z1+2);  */
 }
 
 /*======== void add_sphere() ==========
